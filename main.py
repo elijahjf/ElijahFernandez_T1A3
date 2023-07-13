@@ -38,7 +38,7 @@ def main():
             print("Enter the ingredients of the recipe (type 'end' on a new line to finish):")
             name_ingredients = []
             line = input()
-            while line != "end":
+            while line.lower() != "end":
                 name_ingredients.append(line)
                 # list comprehension
                 name_ingredients = [i.lower() for i in name_ingredients]
@@ -48,7 +48,7 @@ def main():
             print("Enter the method of the recipe (type 'end' on a new line to finish):")
             name_method = []
             line = input()
-            while line != "end":
+            while line.lower() != "end":
                 name_method.append(line)
                 # list comprehension
                 name_method = [i.lower() for i in name_method]
