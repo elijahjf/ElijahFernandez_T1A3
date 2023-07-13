@@ -40,6 +40,8 @@ def main():
             line = input()
             while line != "end":
                 name_ingredients.append(line)
+                # list comprehension
+                name_ingredients = [i.lower() for i in name_ingredients]
                 line = input()
 
             # Multi-line input for method
@@ -48,16 +50,20 @@ def main():
             line = input()
             while line != "end":
                 name_method.append(line)
+                # list comprehension
+                name_method = [i.lower() for i in name_method]
                 line = input()
 
-            recipe_list.append([name_recipe, name_author, name_cuisine, name_total_time, name_servings, name_ingredients, name_method])
+            recipe_list.append([name_recipe.lower(), name_author.lower(), name_cuisine.lower(), name_total_time.lower(), name_servings.lower(), name_ingredients, name_method])
+            # list comprehension
+            #recipe_list = [i.lower() for i in recipe_list]
         elif selection == 2:
             print("Searching for a recipe...")
             keyword = input("Search: ")
             for i in recipe_list:
                 if keyword in i or any(keyword in ingredient for ingredient in i[6]):
-                    print(i)
-            
+                    print(i)   
+                    
             # keyword = input("Search: ")
             # for i in recipe_list:
             #     if keyword in i or keyword in any(keyword in ingredient for ingredient in i["ingredients"]):
