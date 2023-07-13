@@ -1,4 +1,8 @@
 import json
+import pyfiglet
+from rich.console import Console
+
+console = Console()
 
 def main():
     
@@ -14,8 +18,9 @@ def main():
         
     selection = 0
     while selection != 4:
-        print("\n🥢CULINARY CONSOLE🥢\n")
-
+        # title = pyfiglet.figlet_format("\n🥢CULINARY CONSOLE🥢\n", font= "slant")
+        # print(title)
+        console.print("\n🥢CULINARY CONSOLE🥢\n", style="bold green")
         print("Enter a number to navigate the menu...\n")
         print("1. Add recipe")
         print("2. Search recipe")
@@ -24,7 +29,7 @@ def main():
         selection = int(input())
         
         if selection == 1:
-            print("Adding a recipe...")
+            console.print("Adding a recipe...", style="blue")
             name_recipe = input("Enter the name of the recipe: ")
             name_author = input("Enter the author of the recipe: ")
             name_cuisine = input("Enter the cuisine of the recipe: ")
@@ -38,7 +43,7 @@ def main():
             print("Enter the ingredients of the recipe (type 'end' on a new line to finish):")
             name_ingredients = []
             line = input()
-            while line != "end":
+            while line.lower() != "end":
                 name_ingredients.append(line)
                 # list comprehension
                 name_ingredients = [i.lower() for i in name_ingredients]
@@ -48,7 +53,7 @@ def main():
             print("Enter the method of the recipe (type 'end' on a new line to finish):")
             name_method = []
             line = input()
-            while line != "end":
+            while line.lower() != "end":
                 name_method.append(line)
                 # list comprehension
                 name_method = [i.lower() for i in name_method]
@@ -58,7 +63,7 @@ def main():
             # list comprehension
             #recipe_list = [i.lower() for i in recipe_list]
         elif selection == 2:
-            print("Searching for a recipe...")
+            console.print("Searching for a recipe...", style="blue")
             keyword = input("Search: ")
             for i in recipe_list:
                 if keyword in i or any(keyword in ingredient for ingredient in i[6]):
@@ -80,12 +85,13 @@ def main():
             #         print(i)
 
         elif selection == 3:
-            print("Displaying full recipes...")
+            console.print("Displaying full recipes...", style="blue")
             for i in range(len(recipe_list)):
                 print(recipe_list[i])
         else:
-            print("Exiting App...")
-    print("\nGoodbye!") 
+            console.print("Exiting App...\n", style="red")
+    bye = pyfiglet.figlet_format("Goodbye!", font= "slant")
+    print(bye) 
 
     # Saving to JSON file
     with open("recipes.json", "w") as outfile:
