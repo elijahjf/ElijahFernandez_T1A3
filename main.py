@@ -2,8 +2,15 @@ import json
 
 def main():
     
-
-    recipe_list = []
+    try:
+        # Initialize recipe list
+        recipe_list = []
+        with open("recipes.json", "r") as infile:
+            recipe_list = json.load(infile)
+    except FileNotFoundError:
+        print("The 'recipes.json' file is not found...")
+        print("Creating a new recipe book...")
+        recipe_list = []
         
     selection = 0
     while selection != 4:
@@ -21,6 +28,9 @@ def main():
             name_recipe = input("Enter the name of the recipe: ")
             name_author = input("Enter the author of the recipe: ")
             name_cuisine = input("Enter the cuisine of the recipe: ")
+            # name_prep_time = input("Enter the prep time of the recipe in minutes: ")
+            # name_prep_time = name_prep_time + " mins"
+            # name_cook_time = input("Enter the cook time of the recipe in minutes: ")
             name_total_time = input("Enter the total time of the recipe in minutes: ")
             name_servings = input("Enter the servings of the recipe: ")
 
@@ -47,6 +57,21 @@ def main():
             for i in recipe_list:
                 if keyword in i or any(keyword in ingredient for ingredient in i[6]):
                     print(i)
+            
+            # keyword = input("Search: ")
+            # for i in recipe_list:
+            #     if keyword in i or keyword in any(keyword in ingredient for ingredient in i["ingredients"]):
+            #         print(i)
+
+            # keyword = input("Search: ")
+            # for recipe in recipe_list:
+            #     if keyword in recipe["name"] or any(keyword in ingredient for ingredient in recipe["ingredients"]):
+            #         print(recipe)
+
+            # keyword = input("Search: ")
+            # for i in recipe_list:
+            #     if keyword in i[0] or i[1] or i[2] or i[3] or i[4] or i[5] or any(keyword in ingredient for ingredient in i[6]):
+            #         print(i)
 
         elif selection == 3:
             print("Displaying full recipes...")
@@ -55,6 +80,10 @@ def main():
         else:
             print("Exiting App...")
     print("\nGoodbye!") 
+
+    # Saving to JSON file
+    with open("recipes.json", "w") as outfile:
+        json.dump(recipe_list, outfile)
     
 # if the name of the file = to the main func then go ahead and execute main func
 if __name__ == "__main__":
