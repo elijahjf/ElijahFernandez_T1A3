@@ -27,6 +27,10 @@ def main():
             for i in recipe_list:
                 if keyword in i:
                     print(i)
+        elif selection == 3:
+            print("Displaying full recipes...")
+            for i in range(len(recipe_list)):
+                print(recipe_list[i])
         else:         
             print("Exiting App...")
     print("\nGoodbye!") 
