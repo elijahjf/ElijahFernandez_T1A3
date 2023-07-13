@@ -1,8 +1,15 @@
 import json
 
 def main():
-    #init list
-    recipe_list = []
+    try:
+        # Initialize recipe list
+        recipe_list = []
+        with open("recipes.json", "r") as infile:
+            recipe_list = json.load(infile)
+    except FileNotFoundError:
+        print("The 'recipes.json' file is not found...")
+        print("Creating a new recipe book...")
+        recipe_list = []
         
     selection = 0
     while selection != 4:
@@ -35,6 +42,10 @@ def main():
             print("Exiting App...")
     print("\nGoodbye!") 
     
+    # Saving to JSON file
+    with open("recipes.json", "w") as outfile:
+        json.dump(recipe_list, outfile)
+
 # if the name of the file = to the main func then go ahead and execute main func
 if __name__ == "__main__":
     main()
