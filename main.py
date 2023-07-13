@@ -5,7 +5,6 @@ from rich.console import Console
 console = Console()
 
 def main():
-    
     try:
         # Initialize recipe list
         recipe_list = []
@@ -15,7 +14,7 @@ def main():
         print("The 'recipes.json' file is not found...")
         print("Creating a new recipe book...")
         recipe_list = []
-        
+
     selection = 0
     while selection != 4:
         # title = pyfiglet.figlet_format("\n🥢CULINARY CONSOLE🥢\n", font= "slant")
@@ -27,7 +26,7 @@ def main():
         print("3. Display recipes")
         print("4. Exit\n")
         selection = int(input())
-        
+
         if selection == 1:
             def add_recipe():
                 console.print("Adding a recipe...", style="blue")
@@ -60,18 +59,27 @@ def main():
                     name_method = [i.lower() for i in name_method]
                     line = input()
 
-                recipe_list.append([name_recipe.lower(), name_author.lower(), name_cuisine.lower(), name_total_time.lower(), name_servings.lower(), name_ingredients, name_method])
+                recipe_list.append([
+                    name_recipe.lower(), 
+                    name_author.lower(), 
+                    name_cuisine.lower(), 
+                    name_total_time.lower(), 
+                    name_servings.lower(), 
+                    name_ingredients, 
+                    name_method
+                ])
                 # list comprehension
                 #recipe_list = [i.lower() for i in recipe_list]
             add_recipe()
+
         elif selection == 2:
             def search_recipes():
                 console.print("Searching for a recipe...", style="blue")
                 keyword = input("Search: ")
                 for i in recipe_list:
                     if keyword in i or any(keyword in ingredient for ingredient in i[6]):
-                        print(i)   
-                        
+                        print(i) 
+            search_recipes()    
                 # keyword = input("Search: ")
                 # for i in recipe_list:
                 #     if keyword in i or keyword in any(keyword in ingredient for ingredient in i["ingredients"]):
@@ -86,17 +94,19 @@ def main():
                 # for i in recipe_list:
                 #     if keyword in i[0] or i[1] or i[2] or i[3] or i[4] or i[5] or any(keyword in ingredient for ingredient in i[6]):
                 #         print(i)
-            search_recipes()
+
         elif selection == 3:
             def display_all_recipes():
                 console.print("Displaying full recipes...", style="blue")
                 for i in range(len(recipe_list)):
                     print(recipe_list[i])
             display_all_recipes()
+
         else:
             def exit():
                 console.print("Exiting App...\n", style="red")
             exit()
+            
     bye = pyfiglet.figlet_format("Goodbye!", font= "slant")
     print(bye)
 
