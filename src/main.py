@@ -8,12 +8,12 @@ console = Console()
 # get dir path of main.py
 current_directory = os.path.dirname(os.path.abspath(__file__))
 # create path to the json
-json_file_path = os.path.join(current_directory, "recipes.json")
+json_file = os.path.join(current_directory, "recipes.json")
 
 
 def load_recipe_list():
     try:
-        with open(json_file_path, "r") as infile:
+        with open(json_file, "r") as infile:
             recipe_list = json.load(infile)
     except FileNotFoundError:
         print("The 'recipes.json' file is not found...")
@@ -121,7 +121,7 @@ def main():
     print(bye)
 
     # Saving to JSON file
-    with open(json_file_path, "w") as outfile:
+    with open(json_file, "w") as outfile:
         json.dump(recipe_list, outfile)
     
 # if the name of the file = to the main func then go ahead and execute main func

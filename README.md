@@ -55,6 +55,17 @@ Recipe data is store in a JSON file. This will be read by the application on sta
 
 ## Planning
 I utilised trello boards to manage my projects lifecycle and iteration. I made nested checklists, updated with comments, and left links and descriptions.
-![trello_overview](/trello_terminal_t1a3.png)
-![trello_packages](/trello_packages.png)
-![trello_readme](/trello_readme.png)
+![trello_overview](/docs/trello_terminal_t1a3.png)
+![trello_packages](/docs/trello_packages.png)
+![trello_readme](/docs/trello_readme.png)
+
+## Testing
+![pytest_pass](/docs/pytest_pass.png)
+### Test 1: test_file_creation:
+- Ensure that a file is created when the create_recipe_file function is called.
+- The test checks if the file doesn't exist before calling the function, and then verifies that the file exists after the function is executed.
+
+### Test 2: test_add_recipe:
+- Test the process of adding a recipe to the recipe list and saving it to a file.
+- The test creates a file, loads the recipe list from the file, adds a sample recipe to the list, and saves the updated list back to the file.
+- It then checks if the added recipe is present in the loaded list by comparing various attributes of the recipe.
