@@ -106,7 +106,7 @@ def main():
             def exit():
                 console.print("Exiting App...\n", style="red")
             exit()
-            
+
     bye = pyfiglet.figlet_format("Goodbye!", font= "slant")
     print(bye)
 
