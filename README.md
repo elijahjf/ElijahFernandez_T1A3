@@ -1,3 +1,9 @@
+# [vimeo](https://vimeo.com/user197620247)
+# [github](https://github.com/elijahjf/elijahfernandez_T1A3)
+
+# Coding Conventions
+Pep8
+
 # Help Documentation
 ## Steps to install:
 1. download zip file from: https://github.com/elijahjf/elijahfernandez_T1A3
@@ -65,7 +71,33 @@ I utilised trello boards to manage my projects lifecycle and iteration. I made n
 - Ensure that a file is created when the create_recipe_file function is called.
 - The test checks if the file doesn't exist before calling the function, and then verifies that the file exists after the function is executed.
 
+#### Feature Covered
+The first test verifies the file creation functionality of the application.
+
+#### What is Being Tested
+This test checks whether the create_recipe_file function successfully creates a file when called.
+
+#### Test Cases and Expected Results
+##### Test Case: File doesn't exist before the function call
+Expected Result: The file should be created after calling the create_recipe_file function.
+##### Test Case: File already exists before the function call
+Expected Result: The file should still be created and overwritten with an empty file.
+
 ### Test 2: test_add_recipe:
 - Test the process of adding a recipe to the recipe list and saving it to a file.
 - The test creates a file, loads the recipe list from the file, adds a sample recipe to the list, and saves the updated list back to the file.
 - It then checks if the added recipe is present in the loaded list by comparing various attributes of the recipe.
+
+#### Feature Covered
+The second test validates the process of adding a recipe to the recipe list and saving it to a file.
+
+#### What is Being Tested
+This test ensures that the application correctly handles adding a recipe, updating the recipe list, and saving it to a file.
+
+#### Test Cases and Expected Results
+##### Test Case: Adding a recipe to an empty list
+Expected Result: The recipe should be successfully added to the list, and the updated list should be saved to the file.
+
+##### Test Case: Adding a recipe to a non-empty list
+Expected Result: The recipe should be appended to the existing list, and the updated list should be saved to the file.
+Including this testing procedure with the source code of the application helps provide a clear understanding of the specific features covered, what is being tested, and the expected results for each test case.
