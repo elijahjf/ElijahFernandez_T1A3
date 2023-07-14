@@ -10,9 +10,10 @@ Pep8
 2. unzip
 3. in terminal navigate to "elijahfernandez_T1A3\src"
 4. enter "ls -a" into the terminal to show all files including hidden ones in the src folder
-5. run the file script.sh
-6. if you're having a permissions error, type in "chmod -x script.sh"
-7. do the same to run tests
+5. run the file setup.sh
+6. run the file run.sh
+7. if you're having a permissions error, type in "chmod -x script.sh"
+8. do the same to run tests
 
 ## Dependencies required by the application to operate
 ## System/hardware requirements

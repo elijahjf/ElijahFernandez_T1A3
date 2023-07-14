@@ -26,4 +26,7 @@ else
 
 pip install -r requirements.txt
 
-python3 main.py
+# perms
+chmod +x "main.py"
+echo "Executable permisions enabled"
+echo "please run run.sh"
