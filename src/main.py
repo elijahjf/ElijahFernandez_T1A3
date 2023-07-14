@@ -1,19 +1,29 @@
+import os
 import json
 import pyfiglet
 from rich.console import Console
 
 console = Console()
 
-def main():
+# get dir path of main.py
+current_directory = os.path.dirname(os.path.abspath(__file__))
+# create path to the json
+json_file_path = os.path.join(current_directory, "recipes.json")
+
+
+def load_recipe_list():
     try:
-        # Initialize recipe list
-        recipe_list = []
-        with open("recipes.json", "r") as infile:
+        with open(json_file_path, "r") as infile:
             recipe_list = json.load(infile)
     except FileNotFoundError:
         print("The 'recipes.json' file is not found...")
         print("Creating a new recipe book...")
         recipe_list = []
+
+    return recipe_list
+
+def main():
+    recipe_list = load_recipe_list()
 
     selection = 0
     while selection != 4:
@@ -111,7 +121,7 @@ def main():
     print(bye)
 
     # Saving to JSON file
-    with open("recipes.json", "w") as outfile:
+    with open(json_file_path, "w") as outfile:
         json.dump(recipe_list, outfile)
     
 # if the name of the file = to the main func then go ahead and execute main func
