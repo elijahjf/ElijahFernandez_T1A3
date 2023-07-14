@@ -22,3 +22,5 @@ schema==0.7.5
 six==1.16.0
 termcolor==2.2.0
 zope.interface==6.0
+
+# pip freeze > requirements.txt
